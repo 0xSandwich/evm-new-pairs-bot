@@ -29,8 +29,7 @@ async function safePoll() {
         lastBlockRefs[dex.name],
         provider,
         bot,
-        chatId,
-        escapeMarkdownV2
+        chatId
       );
     }
   } catch (err) {
@@ -40,7 +39,27 @@ async function safePoll() {
 
 setInterval(safePoll, 5_000);
 console.log("🚀 Listening for new pairs...");
-bot.start((ctx) => ctx.reply("🤖 Bot is running."));
-bot.launch();
+
+// Start the bot
+bot.launch().then(() => {
+  console.log("🤖 Bot started successfully");
+}).catch(err => {
+  console.error("❌ Failed to start bot:", err);
+  process.exit(1);
+});
+
+// Enable graceful stop
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
+
+// Start a simple HTTP server to keep the app alive on Heroku
+const http = require('http');
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Bot is running!');
+});
+
+const port = process.env.PORT || 3000;
+server.listen(port, () => {
+  console.log(`🌐 Server listening on port ${port}`);
+});
