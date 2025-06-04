@@ -1,0 +1,22 @@
+{
+  "dexConfig": [
+    {
+      "name": "HyperSwapV2",
+      "factoryAddress": "0x724412C00059bf7d6ee7d4a1d0D5cd4de3ea1C48",
+      "factoryAbiPath": "./abis/hyperSwapV2Factory.json",
+      "createdPairMethodName": "PairCreated"
+    },
+    {
+      "name": "HyperSwapV3",
+      "factoryAddress": "0xB1c0fa0B789320044A6F623cFe5eBda9562602E3",
+      "factoryAbiPath": "./abis/hyperSwapV3Factory.json",
+      "createdPairMethodName": "PoolCreated"
+    },
+    {
+      "name": "KittenSwap",
+      "factoryAddress": "0xDa12F450580A4cc485C3b501BAB7b0B3cbc3B31B",
+      "factoryAbiPath": "./abis/kittenSwapFactory.json",
+      "createdPairMethodName": "PairCreated"
+    }
+  ]
+}
