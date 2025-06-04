@@ -40,7 +40,7 @@ async function safePoll() {
 
 setInterval(safePoll, 5_000);
 console.log("🚀 Listening for new pairs...");
-
+bot.start((ctx) => ctx.reply("🤖 Bot is running."));
 bot.launch();
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
