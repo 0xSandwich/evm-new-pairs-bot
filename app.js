@@ -41,6 +41,7 @@ setInterval(safePoll, 5_000);
 console.log("🚀 Listening for new pairs...");
 
 // Start the bot
+bot.start((ctx) => ctx.reply("🤖 Bot is running."));
 bot.launch().then(() => {
   console.log("🤖 Bot started successfully");
 }).catch(err => {
