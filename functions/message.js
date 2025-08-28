@@ -38,7 +38,7 @@ ${token0Section}${token0Section && token1Section ? '\n' : ''}${token1Section}
 
 🔢 Block ${blockNumber}
 
-🔗 [DEX](https://dexscreener.com/hyperevm/${pair}) \\| [PURRSEC](https://purrsec.com/address/${pair})`;
+🔗 [DEX](${process.env.DEXSCREENER_BASIS_URL}${pair}) \\| [EXPLORER](${process.env.EXPLORER_BASIS_URL}${pair})`;
   
   console.log(`Sending message for LP $${escapeMarkdownV2(info0.symbol)} / $${escapeMarkdownV2(info1.symbol)}`);
   await bot.telegram.sendMessage(chatId, msg.trim(), {
